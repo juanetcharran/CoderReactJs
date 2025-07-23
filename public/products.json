@@ -1,0 +1,8 @@
+[
+  { "id": 1, "nombre": "Coca 2.25L", "precio": 4500, "imagen": "/images/CocaCola2.25.png", "categoria": 0 },
+  { "id": 2, "nombre": "Fernet 1L", "precio": 12000, "imagen": "/images/Fernet.jfif", "categoria": 1 },
+  { "id": 3, "nombre": "Campari 0.75L", "precio": 8500, "imagen": "/images/Campari.jpg", "categoria": 1 },
+  { "id": 4, "nombre": "Cepita 1L", "precio": 2500, "imagen": "/images/Cepita.jpg", "categoria": 0 },
+  { "id": 5, "nombre": "Gin 0.75L", "precio": 10000, "imagen": "/images/Gin.jpeg", "categoria": 1 },
+  { "id": 6, "nombre": "Tónica", "precio": 2500, "imagen": "/images/tonica.jfif", "categoria": 1 }
+]

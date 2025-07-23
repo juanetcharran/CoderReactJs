@@ -7,3 +7,5 @@ class Product {
         this.categoria = categoria;
     }
 }
+
+export default Product;

@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../data/products";
+import { getProductById } from "../data/products";
 
-const useProducts = () => {
-    const [products, setProducts] = useState([]);
+const useProduct = (id) => {
+    const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getProducts()
+        getProductById(id)
             .then((data) => {
-                setProducts(data);
+                setProduct(data);
             })
             .catch((error) => {
                 console.error("Error loading products:", error);
@@ -16,9 +16,9 @@ const useProducts = () => {
             .finally(() => {
                 setLoading(false);
             });
-    }, [])
+    }, [id])
 
-    return { products, loading };
+    return { product, loading };
 }
 
-export default useProducts;
+export default useProduct;
