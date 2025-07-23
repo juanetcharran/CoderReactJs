@@ -1,4 +1,5 @@
 import React from 'react';
+import ItemCount from '../ItemCount/ItemCount';
 
 const ItemDetail = ({ product }) => {
     if (!product) {
@@ -24,11 +25,7 @@ const ItemDetail = ({ product }) => {
                             Categoría: {product.categoria == 1 ? '+18' : 'ATP'}
                         </span>
                     </p>
-                    <div className="d-flex align-items-center mb-3">
-                        <button className="btn btn-outline-secondary">-</button>
-                        <span className="mx-3 fs-5">1</span>
-                        <button className="btn btn-outline-secondary">+</button>
-                    </div>
+                    <ItemCount initial={1} min={1} max={10} />
                     <button className="btn btn-success">
                         Agregar al carrito
                     </button>
