@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { getProductById } from "../data/products";
+import { getProductByIdFs } from "../services/products";
 
 const useProduct = (id) => {
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getProductById(id)
+    getProductByIdFs(id)
             .then((data) => {
                 setProduct(data);
             })

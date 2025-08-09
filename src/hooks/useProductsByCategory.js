@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProductsByCategory } from "../data/products";
+import { getProductsByCategoryFs } from "../services/products";
 
 const useProductsByCategory = (category) => {
     const [products, setProducts] = useState([]);
@@ -7,7 +7,7 @@ const useProductsByCategory = (category) => {
 
     useEffect(() => {
         setLoading(true);
-        getProductsByCategory(category)
+    getProductsByCategoryFs(category)
             .then((data) => {
                 setProducts(data);
             })

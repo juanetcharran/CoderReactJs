@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
+import { useCart } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ product }) => {
     if (!product) {
         return <div className="alert alert-danger mt-3">¡Error! No hay producto con este identificador.</div>;
     }
+
+    const { addItem } = useCart();
+    const [added, setAdded] = useState(false);
+    const stock = useMemo(() => product?.stock ?? 10, [product]);
+
+    const add = (amount) => {
+        addItem(product, amount);
+
+        setAdded(true);
+    };
 
     return (
         <div className="container my-5">
@@ -25,10 +37,20 @@ const ItemDetail = ({ product }) => {
                             Categoría: {product.categoria == 1 ? '+18' : 'ATP'}
                         </span>
                     </p>
-                    <ItemCount initial={1} min={1} max={10} />
-                    <button className="btn btn-success">
-                        Agregar al carrito
-                    </button>
+                    {!added ? (
+                        <>
+                            {
+                                stock <= 0 ?
+                                    (<div className="alert alert-warning">Sin Stock!!</div>) :
+                                    (<ItemCount initial={1} min={1} max={stock} onConfirm={add} />)
+                            }
+                        </>
+                    ) : (
+                        <div className="d-flex gap-2">
+                            <Link className="btn btn-success" to="/cart">Ir al carrito</Link>
+                            <Link className="btn btn-outline-primary" to="/">Seguir comprando</Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
